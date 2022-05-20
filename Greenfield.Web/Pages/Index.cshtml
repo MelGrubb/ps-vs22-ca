@@ -1,0 +1,32 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-4 fw-bold">Welcome</h1>
+    <h2>Get out of the city. Get out into nature!</h2>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">Rent time in open spaces. Earn money the from spaces you own.</p>
+    </div>
+</div>
+
+<div class="container px-4 py-5" id="featured-3">
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-2">
+        <div class="feature col">
+            <div class="p-3 bg-light bg-opacity-50">
+                <h2>Renters</h2>
+                <p>Find the perfect getaway to... get away.</p>
+                <a asp-area="" asp-page="/Reservations/Index" class="btn btn-primary">Reserve now</a>
+            </div>
+        </div>
+        <div class="feature col">
+            <div class="p-3 bg-light bg-opacity-50">
+                <h2>Owners</h2>
+                <p>Sign up your own properties and start earning today</p>
+                <a asp-area="" asp-page="/Properties/Index" class="btn btn-primary">Register now</a>
+            </div>
+        </div>
+    </div>
+</div>

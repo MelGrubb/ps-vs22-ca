@@ -1,0 +1,39 @@
+﻿@page
+@using Greenfield.Web.Model.Entities
+@model Greenfield.Web.Pages.Properties.IndexModel
+
+@{
+    ViewData["Title"] = "My Properties";
+}
+
+<div class="container p-3 bg-light bg-opacity-50">
+    <h1>My Properties</h1>
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Properties[0].Name)</th>
+                    <th>@Html.DisplayNameFor(model => model.Properties[0].PropertyType)</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Property item in Model.Properties)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(x => item.Name)</td>
+                        <td>@Html.DisplayFor(x => item.PropertyType)</td>
+                        <td>
+                            <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <p>
+            <a asp-page="Create">Add Property</a>
+        </p>
+    </div>
+</div>

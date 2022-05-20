@@ -1,0 +1,45 @@
+﻿@page
+@model Greenfield.Web.Pages.Reservations.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container p-3 bg-light bg-opacity-50">
+    <h1>Edit Reservation</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Reservation.Id" />
+                <div class="form-group">
+                    <label asp-for="Reservation.PropertyId" class="control-label"></label>
+                    <select asp-for="Reservation.PropertyId" class="form-control" asp-items="ViewBag.PropertyId"></select>
+                    <span asp-validation-for="Reservation.PropertyId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Reservation.ClientId" class="control-label"></label>
+                    <select asp-for="Reservation.ClientId" class="form-control" asp-items="ViewBag.ClientId"></select>
+                    <span asp-validation-for="Reservation.ClientId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Reservation.Date" class="control-label"></label>
+                    <input asp-for="Reservation.Date" class="form-control" />
+                    <span asp-validation-for="Reservation.Date" class="text-danger"></span>
+                </div>
+                <hr/>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" /> |
+                    <a asp-page="./Index">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}

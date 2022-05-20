@@ -1,0 +1,35 @@
+html { font-size: 14px; }
+
+@media (min-width: 768px) {
+    html { font-size: 16px; }
+}
+
+html {
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+    background-image: url("/Images/background.jpg"), linear-gradient(dodgerblue 0%, azure 20%, azure 80%, darkgreen);
+    background-size: cover;
+    margin-bottom: 60px;
+}
+
+.display-4 {
+    font-size: calc(1.475rem + 2.7vw);
+    font-weight: 300;
+    line-height: 1.2;
+    /*color: white;*/
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: black;
+}
+
+tbody, td, tfoot, th, thead, tr {
+    border-color: lightgrey;
+    border-style: solid;
+    border-width: 0;
+}

@@ -1,0 +1,47 @@
+﻿@page
+@using Greenfield.Web.Model.Entities
+@model Greenfield.Web.Pages.Reservations.IndexModel
+
+@{
+    ViewData["Title"] = "My Reservations";
+}
+
+<div class="container p-3 bg-light bg-opacity-50">
+    <h1>My Reservations</h1>
+    <div class="row">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Reservation[0].Property)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Reservation[0].Date)
+                </th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (Reservation item in Model.Reservation)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Property.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+        <p>
+            <a asp-page="Create">Add Reservation</a>
+        </p>
+    </div>
+</div>
