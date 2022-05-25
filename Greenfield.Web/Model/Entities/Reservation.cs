@@ -14,13 +14,13 @@ namespace Greenfield.Web.Model.Entities
         public virtual Property Property { get; set; }
         
         [Required]
-        [Display(Name = nameof(Property))]
+        [Display(Name=nameof(Property))]
         public Guid PropertyId { get; set; }
 
         public virtual ApplicationUser Client { get; set; }
 
         [Required]
-        [Display(Name = nameof(Client))]
+        [Display(Name=nameof(Client))]
         public Guid ClientId { get; set; }
         
         /// <summary>The date of the reservation.</summary>
@@ -30,8 +30,8 @@ namespace Greenfield.Web.Model.Entities
 
         public enum ReservationType
         {
-            Daytime = 1,
-            Overnight = 23
+            Daytime=1,
+            Overnight=23
         }
 
         /// <summary>Entity type configuration for the <see cref="Reservation"/> class.</summary>
@@ -44,76 +44,76 @@ namespace Greenfield.Web.Model.Entities
                 builder.HasData(GF1R1, GF1R2, GF2R1, GF2R2, GF3R1, GF3R2);
             }
 
-            public static readonly Reservation GF1R1 = new Reservation
+            public static readonly Reservation GF1R1=new Reservation
             {
-                Id = Guid.Parse("47726565-6E66-6965-6C64-315265733031"),
-                ClientId = ApplicationUser.Configuration.TestUser.Id,
-                PropertyId = Property.Configuration.GreenfieldProperty1.Id,
-                Date = new DateTime(2022, 01, 01),
-                CreatedAt = new DateTime(2022, 03, 04),
-                CreatedBy = "Seed Data",
-                UpdatedAt = new DateTime(2022, 03, 04),
-                UpdatedBy = "Seed Data",                
+                Id=Guid.Parse("47726565-6E66-6965-6C64-315265733031"),
+                ClientId=ApplicationUser.Configuration.TestUser.Id,
+                PropertyId=Property.Configuration.GreenfieldProperty1.Id,
+                Date=new DateTime(2022, 01, 01),
+                CreatedAt=new DateTime(2022, 03, 04),
+                CreatedBy="Seed Data",
+                UpdatedAt=new DateTime(2022, 03, 04),
+                UpdatedBy="Seed Data",                
             };
 
-            public static readonly Reservation GF1R2 = new Reservation
+            public static readonly Reservation GF1R2=new Reservation
             {
-                Id = Guid.Parse("47726565-6E66-6965-6C64-315265733032"),
-                ClientId = ApplicationUser.Configuration.TestUser.Id,
-                PropertyId = Property.Configuration.GreenfieldProperty1.Id,
-                Date = new DateTime(2022, 01, 02),
-                CreatedAt = new DateTime(2022, 03, 04),
-                CreatedBy = "Seed Data",
-                UpdatedAt = new DateTime(2022, 03, 04),
-                UpdatedBy = "Seed Data",                
+                Id=Guid.Parse("47726565-6E66-6965-6C64-315265733032"),
+                ClientId=ApplicationUser.Configuration.TestUser.Id,
+                PropertyId=Property.Configuration.GreenfieldProperty1.Id,
+                Date=new DateTime(2022, 01, 02),
+                CreatedAt=new DateTime(2022, 03, 04),
+                CreatedBy="Seed Data",
+                UpdatedAt=new DateTime(2022, 03, 04),
+                UpdatedBy="Seed Data",                
             };
 
-            public static readonly Reservation GF2R1 = new Reservation
+            public static readonly Reservation GF2R1=new Reservation
             {
-                Id = Guid.Parse("47726565-6E66-6965-6C64-325265733031"),
-                ClientId = ApplicationUser.Configuration.TestUser.Id,
-                PropertyId = Property.Configuration.GreenfieldProperty2.Id,
-                Date = new DateTime(2022, 02, 01),
-                CreatedAt = new DateTime(2022, 03, 04),
-                CreatedBy = "Seed Data",
-                UpdatedAt = new DateTime(2022, 03, 04),
-                UpdatedBy = "Seed Data",                
+                Id=Guid.Parse("47726565-6E66-6965-6C64-325265733031"),
+                ClientId=ApplicationUser.Configuration.TestUser.Id,
+                PropertyId=Property.Configuration.GreenfieldProperty2.Id,
+                Date=new DateTime(2022, 02, 01),
+                CreatedAt=new DateTime(2022, 03, 04),
+                CreatedBy="Seed Data",
+                UpdatedAt=new DateTime(2022, 03, 04),
+                UpdatedBy="Seed Data",                
             };
 
-            public static readonly Reservation GF2R2 = new Reservation
+            public static readonly Reservation GF2R2=new Reservation
             {
-                Id = Guid.Parse("47726565-6E66-6965-6C64-325265733032"),
-                ClientId = ApplicationUser.Configuration.TestUser.Id,
-                PropertyId = Property.Configuration.GreenfieldProperty2.Id,
-                Date = new DateTime(2022, 02, 02),
-                CreatedAt = new DateTime(2022, 03, 04),
-                CreatedBy = "Seed Data",
-                UpdatedAt = new DateTime(2022, 03, 04),
-                UpdatedBy = "Seed Data",                
+                Id=Guid.Parse("47726565-6E66-6965-6C64-325265733032"),
+                ClientId=ApplicationUser.Configuration.TestUser.Id,
+                PropertyId=Property.Configuration.GreenfieldProperty2.Id,
+                Date=new DateTime(2022, 02, 02),
+                CreatedAt=new DateTime(2022, 03, 04),
+                CreatedBy="Seed Data",
+                UpdatedAt=new DateTime(2022, 03, 04),
+                UpdatedBy="Seed Data",                
             };
 
-            public static readonly Reservation GF3R1 = new Reservation
+            public static readonly Reservation GF3R1=new Reservation
             {
-                Id = Guid.Parse("47726565-6E66-6965-6C64-335265733031"),
-                ClientId = ApplicationUser.Configuration.TestUser.Id,
-                PropertyId = Property.Configuration.GreenfieldProperty3.Id,
-                Date = new DateTime(2022, 03, 01),
-                CreatedAt = new DateTime(2022, 03, 04),
-                CreatedBy = "Seed Data",
-                UpdatedAt = new DateTime(2022, 03, 04),
-                UpdatedBy = "Seed Data",                
+                Id=Guid.Parse("47726565-6E66-6965-6C64-335265733031"),
+                ClientId=ApplicationUser.Configuration.TestUser.Id,
+                PropertyId=Property.Configuration.GreenfieldProperty3.Id,
+                Date=new DateTime(2022, 03, 01),
+                CreatedAt=new DateTime(2022, 03, 04),
+                CreatedBy="Seed Data",
+                UpdatedAt=new DateTime(2022, 03, 04),
+                UpdatedBy="Seed Data",                
             };
 
-            public static readonly Reservation GF3R2 = new Reservation
+            public static readonly Reservation GF3R2=new Reservation
             {
-                Id = Guid.Parse("47726565-6E66-6965-6C64-335265733032"),
-                ClientId = ApplicationUser.Configuration.TestUser.Id,
-                PropertyId = Property.Configuration.GreenfieldProperty3.Id,
-                Date = new DateTime(2022, 03, 02),
-                CreatedAt = new DateTime(2022, 03, 04),
-                CreatedBy = "Seed Data",
-                UpdatedAt = new DateTime(2022, 03, 04),
-                UpdatedBy = "Seed Data",                
+                Id=Guid.Parse("47726565-6E66-6965-6C64-335265733032"),
+                ClientId=ApplicationUser.Configuration.TestUser.Id,
+                PropertyId=Property.Configuration.GreenfieldProperty3.Id,
+                Date=new DateTime(2022, 03, 02),
+                CreatedAt=new DateTime(2022, 03, 04),
+                CreatedBy="Seed Data",
+                UpdatedAt=new DateTime(2022, 03, 04),
+                UpdatedBy="Seed Data",                
             };
         }
     }

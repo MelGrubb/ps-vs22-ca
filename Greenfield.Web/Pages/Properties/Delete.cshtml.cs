@@ -14,11 +14,11 @@ namespace Greenfield.Web.Pages.Properties
     [Authorize]
     public class DeleteModel : PageModel
     {
-        private readonly Greenfield.Web.Model.GreenfieldContext _context;
+        private readonly Greenfield.Web.Model.Context.GreenfieldContext context;
 
-        public DeleteModel(Greenfield.Web.Model.GreenfieldContext context)
+        public DeleteModel(Greenfield.Web.Model.Context.GreenfieldContext context)
         {
-            _context = context;
+            this.context = context;
         }
 
         [BindProperty]
@@ -31,7 +31,7 @@ namespace Greenfield.Web.Pages.Properties
                 return NotFound();
             }
 
-            Property = await _context.Properties.FirstOrDefaultAsync(m => m.Id == id);
+            Property = await context.Properties.FirstOrDefaultAsync(m => m.Id == id);
 
             if (Property == null)
             {
@@ -47,12 +47,12 @@ namespace Greenfield.Web.Pages.Properties
                 return NotFound();
             }
 
-            Property = await _context.Properties.FindAsync(id);
+            Property = await context.Properties.FindAsync(id);
 
             if (Property != null)
             {
-                _context.Properties.Remove(Property);
-                await _context.SaveChangesAsync();
+                context.Properties.Remove(Property);
+                await context.SaveChangesAsync();
             }
 
             return RedirectToPage("./Index");

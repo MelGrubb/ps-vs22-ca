@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Greenfield.Web.Model
+namespace Greenfield.Web.Model.Context
 {
     public class GreenfieldContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
     {

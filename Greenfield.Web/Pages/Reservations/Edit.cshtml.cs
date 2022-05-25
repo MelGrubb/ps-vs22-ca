@@ -15,11 +15,11 @@ namespace Greenfield.Web.Pages.Reservations
     [Authorize]
     public class EditModel : PageModel
     {
-        private readonly Greenfield.Web.Model.GreenfieldContext _context;
+        private readonly Greenfield.Web.Model.Context.GreenfieldContext context;
 
-        public EditModel(Greenfield.Web.Model.GreenfieldContext context)
+        public EditModel(Greenfield.Web.Model.Context.GreenfieldContext context)
         {
-            _context = context;
+            this.context = context;
         }
 
         [BindProperty]
@@ -32,7 +32,7 @@ namespace Greenfield.Web.Pages.Reservations
                 return NotFound();
             }
 
-            Reservation = await _context.Reservations
+            Reservation = await context.Reservations
                 .Include(r => r.Client)
                 .Include(r => r.Property).FirstOrDefaultAsync(m => m.Id == id);
 
@@ -40,8 +40,8 @@ namespace Greenfield.Web.Pages.Reservations
             {
                 return NotFound();
             }
-           ViewData["ClientId"] = new SelectList(_context.Users, "Id", "UserName");
-           ViewData["PropertyId"] = new SelectList(_context.Properties, "Id", "Name");
+           ViewData["ClientId"] = new SelectList(context.Users, "Id", "UserName");
+           ViewData["PropertyId"] = new SelectList(context.Properties, "Id", "Name");
             return Page();
         }
 
@@ -54,11 +54,11 @@ namespace Greenfield.Web.Pages.Reservations
                 return Page();
             }
 
-            _context.Attach(Reservation).State = EntityState.Modified;
+            context.Attach(Reservation).State = EntityState.Modified;
 
             try
             {
-                await _context.SaveChangesAsync();
+                await context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -77,7 +77,7 @@ namespace Greenfield.Web.Pages.Reservations
 
         private bool ReservationExists(Guid id)
         {
-            return _context.Reservations.Any(e => e.Id == id);
+            return context.Reservations.Any(e => e.Id == id);
         }
     }
 }

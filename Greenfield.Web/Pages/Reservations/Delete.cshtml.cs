@@ -14,11 +14,11 @@ namespace Greenfield.Web.Pages.Reservations
     [Authorize]
     public class DeleteModel : PageModel
     {
-        private readonly Greenfield.Web.Model.GreenfieldContext _context;
+        private readonly Greenfield.Web.Model.Context.GreenfieldContext context;
 
-        public DeleteModel(Greenfield.Web.Model.GreenfieldContext context)
+        public DeleteModel(Greenfield.Web.Model.Context.GreenfieldContext context)
         {
-            _context = context;
+            this.context = context;
         }
 
         [BindProperty]
@@ -31,7 +31,7 @@ namespace Greenfield.Web.Pages.Reservations
                 return NotFound();
             }
 
-            Reservation = await _context.Reservations
+            Reservation = await context.Reservations
                 .Include(r => r.Client)
                 .Include(r => r.Property).FirstOrDefaultAsync(m => m.Id == id);
 
@@ -49,12 +49,12 @@ namespace Greenfield.Web.Pages.Reservations
                 return NotFound();
             }
 
-            Reservation = await _context.Reservations.FindAsync(id);
+            Reservation = await context.Reservations.FindAsync(id);
 
             if (Reservation != null)
             {
-                _context.Reservations.Remove(Reservation);
-                await _context.SaveChangesAsync();
+                context.Reservations.Remove(Reservation);
+                await context.SaveChangesAsync();
             }
 
             return RedirectToPage("./Index");

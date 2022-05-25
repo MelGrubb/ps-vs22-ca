@@ -14,11 +14,11 @@ namespace Greenfield.Web.Pages.Properties
     [Authorize]
     public class DetailsModel : PageModel
     {
-        private readonly Greenfield.Web.Model.GreenfieldContext _context;
+        private readonly Greenfield.Web.Model.Context.GreenfieldContext context;
 
-        public DetailsModel(Greenfield.Web.Model.GreenfieldContext context)
+        public DetailsModel(Greenfield.Web.Model.Context.GreenfieldContext context)
         {
-            _context = context;
+            this.context = context;
         }
 
         public Property Property { get; set; }
@@ -30,7 +30,7 @@ namespace Greenfield.Web.Pages.Properties
                 return NotFound();
             }
 
-            Property = await _context.Properties.FirstOrDefaultAsync(m => m.Id == id);
+            Property = await context.Properties.FirstOrDefaultAsync(m => m.Id == id);
 
             if (Property == null)
             {

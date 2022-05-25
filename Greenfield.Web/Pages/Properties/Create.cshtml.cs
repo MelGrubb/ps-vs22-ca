@@ -15,16 +15,16 @@ namespace Greenfield.Web.Pages.Properties
     [Authorize]
     public class CreateModel : PageModel
     {
-        private readonly Greenfield.Web.Model.GreenfieldContext _context;
+        private readonly Greenfield.Web.Model.Context.GreenfieldContext context;
 
-        public CreateModel(Greenfield.Web.Model.GreenfieldContext context)
+        public CreateModel(Greenfield.Web.Model.Context.GreenfieldContext context)
         {
-            _context = context;
+            this.context = context;
         }
 
         public IActionResult OnGet()
         {
-            PropertyTypeList = new SelectList(_context.PropertyTypes, nameof(PropertyType.Id), nameof(PropertyType.Name));
+            PropertyTypeList = new SelectList(context.PropertyTypes, nameof(PropertyType.Id), nameof(PropertyType.Name));
 
             return Page();
         }
@@ -45,8 +45,8 @@ namespace Greenfield.Web.Pages.Properties
             Guid clientId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
             Property.OwnerId = clientId;
 
-            _context.Properties.Add(Property);
-            await _context.SaveChangesAsync();
+            context.Properties.Add(Property);
+            await context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }

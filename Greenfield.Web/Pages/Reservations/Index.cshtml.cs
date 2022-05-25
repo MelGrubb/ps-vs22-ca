@@ -15,11 +15,11 @@ namespace Greenfield.Web.Pages.Reservations
     [Authorize]
     public class IndexModel : PageModel
     {
-        private readonly Greenfield.Web.Model.GreenfieldContext _context;
+        private readonly Greenfield.Web.Model.Context.GreenfieldContext context;
 
-        public IndexModel(Greenfield.Web.Model.GreenfieldContext context)
+        public IndexModel(Greenfield.Web.Model.Context.GreenfieldContext context)
         {
-            _context = context;
+            this.context = context;
         }
 
         public IList<Reservation> Reservation { get;set; }
@@ -28,7 +28,7 @@ namespace Greenfield.Web.Pages.Reservations
         {
             Guid clientId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
-            Reservation = await _context.Reservations
+            Reservation = await context.Reservations
                 .Include(r => r.Client)
                 .Include(r => r.Property)
                 .Where(x => x.ClientId == clientId)

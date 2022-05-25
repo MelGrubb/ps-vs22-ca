@@ -31,7 +31,7 @@ namespace Greenfield.Web.Model.Entities
         public virtual Property Property { get; set; }
 
         [Required]
-        [Display(Name = nameof(Property))]
+        [Display(Name=nameof(Property))]
         public Guid PropertyId { get; set; }
 
         public class Configuration : IEntityTypeConfiguration<Availability>
@@ -42,46 +42,46 @@ namespace Greenfield.Web.Model.Entities
                 builder.HasData(GF1A1, GF1A2, GF1A3);
             }
 
-            public static readonly Availability GF1A1 = new Availability
+            public static readonly Availability GF1A1=new Availability
             {
-                Id = Guid.Parse("47726565-6E66-6965-6C64-303141763031"),
-                CheckIn = "3PM",
-                CheckOut = "11AM",
-                DayOfWeek = DayOfWeek.Friday,
-                PropertyId = Property.Configuration.GreenfieldProperty1.Id,
-                Notes = "Friday availability at GreenfieldProperty1",
-                CreatedAt = new DateTime(2022, 03, 04),
-                CreatedBy = "Seed Data",
-                UpdatedAt = new DateTime(2022, 03, 04),
-                UpdatedBy = "Seed Data",
+                Id=Guid.Parse("47726565-6E66-6965-6C64-303141763031"),
+                CheckIn="3PM",
+                CheckOut="11AM",
+                DayOfWeek=DayOfWeek.Friday,
+                PropertyId=Property.Configuration.GreenfieldProperty1.Id,
+                Notes="Friday availability at GreenfieldProperty1",
+                CreatedAt=new DateTime(2022, 03, 04),
+                CreatedBy="Seed Data",
+                UpdatedAt=new DateTime(2022, 03, 04),
+                UpdatedBy="Seed Data",
             };
 
-            public static readonly Availability GF1A2 = new Availability
+            public static readonly Availability GF1A2=new Availability
             {
-                Id = Guid.Parse("47726565-6E66-6965-6C64-303141763032"),
-                CheckIn = "3PM",
-                CheckOut = "11AM",
-                DayOfWeek = DayOfWeek.Saturday,
-                PropertyId = Property.Configuration.GreenfieldProperty1.Id,
-                Notes = "Saturday availability at GreenfieldProperty1",
-                CreatedAt = new DateTime(2022, 03, 04),
-                CreatedBy = "Seed Data",
-                UpdatedAt = new DateTime(2022, 03, 04),
-                UpdatedBy = "Seed Data",
+                Id=Guid.Parse("47726565-6E66-6965-6C64-303141763032"),
+                CheckIn="3PM",
+                CheckOut="11AM",
+                DayOfWeek=DayOfWeek.Saturday,
+                PropertyId=Property.Configuration.GreenfieldProperty1.Id,
+                Notes="Saturday availability at GreenfieldProperty1",
+                CreatedAt=new DateTime(2022, 03, 04),
+                CreatedBy="Seed Data",
+                UpdatedAt=new DateTime(2022, 03, 04),
+                UpdatedBy="Seed Data",
             };
 
-            public static readonly Availability GF1A3 = new Availability
+            public static readonly Availability GF1A3=new Availability
             {
-                Id = Guid.Parse("47726565-6E66-6965-6C64-303141763033"),
-                CheckIn = "3PM",
-                CheckOut = "11AM",
-                DayOfWeek = DayOfWeek.Sunday,
-                PropertyId = Property.Configuration.GreenfieldProperty1.Id,
-                Notes = "Sunday availability at GreenfieldProperty1",
-                CreatedAt = new DateTime(2022, 03, 04),
-                CreatedBy = "Seed Data",
-                UpdatedAt = new DateTime(2022, 03, 04),
-                UpdatedBy = "Seed Data",
+                Id=Guid.Parse("47726565-6E66-6965-6C64-303141763033"),
+                CheckIn="3PM",
+                CheckOut="11AM",
+                DayOfWeek=DayOfWeek.Sunday,
+                PropertyId=Property.Configuration.GreenfieldProperty1.Id,
+                Notes="Sunday availability at GreenfieldProperty1",
+                CreatedAt=new DateTime(2022, 03, 04),
+                CreatedBy="Seed Data",
+                UpdatedAt=new DateTime(2022, 03, 04),
+                UpdatedBy="Seed Data",
             };
         }
     }

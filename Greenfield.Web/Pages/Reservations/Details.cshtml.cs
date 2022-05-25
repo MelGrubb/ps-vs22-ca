@@ -14,11 +14,11 @@ namespace Greenfield.Web.Pages.Reservations
     [Authorize]
     public class DetailsModel : PageModel
     {
-        private readonly Greenfield.Web.Model.GreenfieldContext _context;
+        private readonly Greenfield.Web.Model.Context.GreenfieldContext context;
 
-        public DetailsModel(Greenfield.Web.Model.GreenfieldContext context)
+        public DetailsModel(Greenfield.Web.Model.Context.GreenfieldContext context)
         {
-            _context = context;
+            this.context = context;
         }
 
         public Reservation Reservation { get; set; }
@@ -30,7 +30,7 @@ namespace Greenfield.Web.Pages.Reservations
                 return NotFound();
             }
 
-            Reservation = await _context.Reservations
+            Reservation = await context.Reservations
                 .Include(r => r.Client)
                 .Include(r => r.Property).FirstOrDefaultAsync(m => m.Id == id);
 

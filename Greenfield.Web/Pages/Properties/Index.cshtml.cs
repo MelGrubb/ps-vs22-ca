@@ -14,11 +14,11 @@ namespace Greenfield.Web.Pages.Properties
     [Authorize]
     public class IndexModel : PageModel
     {
-        private readonly GreenfieldContext _context;
+        private readonly GreenfieldContext context;
 
         public IndexModel(GreenfieldContext context)
         {
-            _context = context;
+            this.context = context;
         }
 
         public IList<Property> Properties { get;set; }
@@ -27,7 +27,7 @@ namespace Greenfield.Web.Pages.Properties
         {
             Guid userId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
-            Properties = await _context.Properties
+            Properties = await context.Properties
                 .Where(x => x.OwnerId == userId)
                 .ToListAsync();
         }

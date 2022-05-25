@@ -14,11 +14,11 @@ namespace Greenfield.Web.Pages.Properties
     [Authorize]
     public class EditModel : PageModel
     {
-        private readonly GreenfieldContext _context;
+        private readonly GreenfieldContext context;
 
         public EditModel(GreenfieldContext context)
         {
-            _context = context;
+            this.context = context;
         }
 
         [BindProperty]
@@ -35,7 +35,7 @@ namespace Greenfield.Web.Pages.Properties
                 return NotFound();
             }
 
-            Property = await _context.Properties.FirstOrDefaultAsync(m => m.Id == id);
+            Property = await context.Properties.FirstOrDefaultAsync(m => m.Id == id);
 
             if (Property == null)
             {
@@ -44,7 +44,7 @@ namespace Greenfield.Web.Pages.Properties
 
             originalName = Property.Name;
 
-            PropertyTypeList = new SelectList(_context.PropertyTypes, nameof(PropertyType.Id), nameof(PropertyType.Name));
+            PropertyTypeList = new SelectList(context.PropertyTypes, nameof(PropertyType.Id), nameof(PropertyType.Name));
 
             return Page();
         }
@@ -63,11 +63,11 @@ namespace Greenfield.Web.Pages.Properties
 
             }
 
-            _context.Attach(Property).State = EntityState.Modified;
+            context.Attach(Property).State = EntityState.Modified;
 
             try
             {
-                await _context.SaveChangesAsync();
+                await context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -86,7 +86,7 @@ namespace Greenfield.Web.Pages.Properties
 
         private bool PropertyExists(Guid id)
         {
-            return _context.Properties.Any(e => e.Id == id);
+            return context.Properties.Any(e => e.Id == id);
         }
     }
 }
