@@ -19,12 +19,12 @@ namespace Greenfield.Web.Pages.Properties
 
         public CreateModel(Greenfield.Web.Model.Context.GreenfieldContext context)
         {
-            this.context = context;
+            this.context=context;
         }
 
         public IActionResult OnGet()
         {
-            PropertyTypeList = new SelectList(context.PropertyTypes, nameof(PropertyType.Id), nameof(PropertyType.Name));
+            PropertyTypeList=new SelectList(context.PropertyTypes, nameof(PropertyType.Id), nameof(PropertyType.Name));
 
             return Page();
         }
@@ -42,8 +42,8 @@ namespace Greenfield.Web.Pages.Properties
                 return Page();
             }
 
-            Guid clientId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-            Property.OwnerId = clientId;
+            Guid clientId=Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            Property.OwnerId=clientId;
 
             context.Properties.Add(Property);
             await context.SaveChangesAsync();

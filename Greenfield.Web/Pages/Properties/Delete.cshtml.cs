@@ -18,7 +18,7 @@ namespace Greenfield.Web.Pages.Properties
 
         public DeleteModel(Greenfield.Web.Model.Context.GreenfieldContext context)
         {
-            this.context = context;
+            this.context=context;
         }
 
         [BindProperty]
@@ -31,7 +31,7 @@ namespace Greenfield.Web.Pages.Properties
                 return NotFound();
             }
 
-            Property = await context.Properties.FirstOrDefaultAsync(m => m.Id == id);
+            Property=await context.Properties.FirstOrDefaultAsync(m => m.Id == id);
 
             if (Property == null)
             {
@@ -47,7 +47,7 @@ namespace Greenfield.Web.Pages.Properties
                 return NotFound();
             }
 
-            Property = await context.Properties.FindAsync(id);
+            Property=await context.Properties.FindAsync(id);
 
             if (Property != null)
             {

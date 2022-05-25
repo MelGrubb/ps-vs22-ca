@@ -1,4 +1,5 @@
-﻿using Greenfield.Web.Model.Context;
+﻿using Greenfield.Web.Model;
+using Greenfield.Web.Model.Context;
 using Greenfield.Web.Model.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,10 +11,10 @@ namespace Greenfield.Web
     {
         public DateTime[] findAvailability(GreenfieldContext context, Property property, int days)
         {
-            int count = 0;
-            var reservations = property.Reservations.Where(x => (x.Date > DateTime.Today));
-            var dates = new List<DateTime>();
-            for (int i = 0; i < days; i++)
+            int count=0;
+            var reservations=property.Reservations.Where(x => (x.Date > DateTime.Today));
+            var dates=new List<DateTime>();
+            for (int i=0; i < days; i++)
             {
                 if(reservations.Where(x => (x.Date == DateTime.Today.AddDays(i))).Count() == 0)
                 {
@@ -32,7 +33,7 @@ namespace Greenfield.Web
             }
             else
             {
-                return new Reservation { Client = client, Date = date };
+                return new Reservation { Client=client, Date=date };
             }
         }
     }
