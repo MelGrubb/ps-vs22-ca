@@ -1,14 +1,13 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using Greenfield.Web.Model;
-using Greenfield.Web.Model.Context;
+﻿using Greenfield.Web.Model.Context;
 using Greenfield.Web.Model.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Greenfield.Web.Pages.Properties
 {
@@ -59,7 +58,7 @@ namespace Greenfield.Web.Pages.Properties
                 return Page();
             }
 
-            if(Property.Name.ToUpper() == originalName.ToUpper())
+            if (Property.Name.ToUpper() == originalName.ToUpper())
             {
 
             }

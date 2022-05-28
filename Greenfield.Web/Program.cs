@@ -1,8 +1,6 @@
-using Greenfield.Web.Model;
 using Greenfield.Web.Model.Context;
 using Greenfield.Web.Model.Entities;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

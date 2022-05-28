@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Greenfield.Web.Model.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using Greenfield.Web.Model;
-using Greenfield.Web.Model.Entities;
-using Microsoft.AspNetCore.Authorization;
+using System;
+using System.Threading.Tasks;
 
 namespace Greenfield.Web.Pages.Properties
 {
@@ -18,7 +15,7 @@ namespace Greenfield.Web.Pages.Properties
 
         public DeleteModel(Greenfield.Web.Model.Context.GreenfieldContext context)
         {
-            this.context=context;
+            this.context = context;
         }
 
         [BindProperty]
@@ -31,7 +28,7 @@ namespace Greenfield.Web.Pages.Properties
                 return NotFound();
             }
 
-            Property=await context.Properties.FirstOrDefaultAsync(m => m.Id == id);
+            Property = await context.Properties.FirstOrDefaultAsync(m => m.Id == id);
 
             if (Property == null)
             {
@@ -47,7 +44,7 @@ namespace Greenfield.Web.Pages.Properties
                 return NotFound();
             }
 
-            Property=await context.Properties.FindAsync(id);
+            Property = await context.Properties.FindAsync(id);
 
             if (Property != null)
             {

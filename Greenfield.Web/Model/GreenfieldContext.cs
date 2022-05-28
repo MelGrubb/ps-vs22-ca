@@ -1,9 +1,8 @@
-﻿using System;
-using System.Reflection;
-using Greenfield.Web.Model.Entities;
+﻿using Greenfield.Web.Model.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace Greenfield.Web.Model.Context
 {

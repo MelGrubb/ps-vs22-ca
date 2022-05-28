@@ -1,14 +1,12 @@
-﻿using System;
+﻿using Greenfield.Web.Model.Entities;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using Greenfield.Web.Model;
-using Greenfield.Web.Model.Entities;
-using Microsoft.AspNetCore.Authorization;
 
 namespace Greenfield.Web.Pages.Reservations
 {
@@ -22,7 +20,7 @@ namespace Greenfield.Web.Pages.Reservations
             this.context = context;
         }
 
-        public IList<Reservation> Reservation { get;set; }
+        public IList<Reservation> Reservation { get; set; }
 
         public async Task OnGetAsync()
         {

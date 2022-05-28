@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
+﻿using Greenfield.Web.Model.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Greenfield.Web.Model;
-using Greenfield.Web.Model.Entities;
-using Microsoft.AspNetCore.Authorization;
+using System;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Greenfield.Web.Pages.Properties
 {
@@ -19,12 +16,12 @@ namespace Greenfield.Web.Pages.Properties
 
         public CreateModel(Greenfield.Web.Model.Context.GreenfieldContext context)
         {
-            this.context=context;
+            this.context = context;
         }
 
         public IActionResult OnGet()
         {
-            PropertyTypeList=new SelectList(context.PropertyTypes, nameof(PropertyType.Id), nameof(PropertyType.Name));
+            PropertyTypeList = new SelectList(context.PropertyTypes, nameof(PropertyType.Id), nameof(PropertyType.Name));
 
             return Page();
         }
@@ -33,7 +30,7 @@ namespace Greenfield.Web.Pages.Properties
         public Property Property { get; set; }
 
         public SelectList PropertyTypeList { get; set; }
-        
+
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
@@ -42,8 +39,8 @@ namespace Greenfield.Web.Pages.Properties
                 return Page();
             }
 
-            Guid clientId=Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
-            Property.OwnerId=clientId;
+            Guid clientId = Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            Property.OwnerId = clientId;
 
             context.Properties.Add(Property);
             await context.SaveChangesAsync();
