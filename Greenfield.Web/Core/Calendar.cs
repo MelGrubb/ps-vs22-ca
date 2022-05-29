@@ -13,7 +13,7 @@ namespace Greenfield.Web.Core
             List<DateTime> dates = new();
             for (int i = 0; i < days; i++)
             {
-                if (reservations.Count(x => x.Date == DateTime.Today.AddDays(i)) == 0)
+                if (!reservations.Any(x => x.Date == DateTime.Today.AddDays(i)))
                 {
                     dates.Add(DateTime.Today.AddDays(i));
                 }
@@ -23,7 +23,7 @@ namespace Greenfield.Web.Core
 
         public Reservation MakeReservation(Property property, ApplicationUser client, DateTime date)
         {
-            return property.Reservations.Where(x => x.Date == date).Count() != 0
+            return property.Reservations.Any(x => x.Date == date)
                 ? throw new InvalidOperationException("A reservation already exists for that day.")
                 : new Reservation { Client = client, Date = date };
         }
