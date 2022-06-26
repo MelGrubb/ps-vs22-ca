@@ -58,7 +58,7 @@ namespace Greenfield.Web.Pages.Properties
                 return Page();
             }
 
-            if (Property.Name.ToUpper() == originalName.ToUpper())
+            if (string.Equals(Property.Name, originalName, StringComparison.OrdinalIgnoreCase))
             {
 
             }
