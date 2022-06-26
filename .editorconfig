@@ -143,7 +143,6 @@ csharp_style_prefer_null_check_over_type_check = true:suggestion
 csharp_style_allow_embedded_statements_on_same_line_experimental = true:silent
 csharp_style_allow_blank_lines_between_consecutive_braces_experimental = true:silent
 csharp_style_allow_blank_line_after_colon_in_constructor_initializer_experimental = true:silent
-dotnet_diagnostic.RCS1055.severity = warning
 ###############################
 # VB Coding Conventions       #
 ###############################
