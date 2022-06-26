@@ -27,5 +27,5 @@ namespace Greenfield.Web.Core
                 ? throw new InvalidOperationException("A reservation already exists for that day.")
                 : new Reservation { Client = client, Date = date };
         }
-    }
+    };
 }
