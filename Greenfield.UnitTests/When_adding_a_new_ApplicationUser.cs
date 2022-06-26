@@ -1,4 +1,4 @@
-using Greenfield.Web.Model.Context;
+﻿using Greenfield.Web.Model.Context;
 using Greenfield.Web.Model.Entities;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using NUnit.Framework;
@@ -16,7 +16,6 @@ namespace Greenfield.UnitTests
             var user = new ApplicationUser();
             var context = new GreenfieldContext(new Microsoft.EntityFrameworkCore.DbContextOptions<GreenfieldContext>());
             _result = context.Users.Add(user);
-
         }
 
         [Test]
