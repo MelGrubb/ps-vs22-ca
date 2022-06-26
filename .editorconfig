@@ -82,7 +82,6 @@ dotnet_style_allow_statement_immediately_after_block_experimental = true:silent
 csharp_style_var_for_built_in_types = true:suggestion
 csharp_style_var_when_type_is_apparent = true:suggestion
 csharp_style_var_elsewhere = true:suggestion
-dotnet_diagnostic.CA1707.severity = error
 # Expression-bodied members
 csharp_style_expression_bodied_methods = false:silent
 csharp_style_expression_bodied_constructors = false:silent
