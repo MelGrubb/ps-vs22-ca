@@ -1,0 +1,2 @@
+﻿P:System.DateTime.Now;Use DateTimeProvider.Now instead.
+P:System.DateTime.Today;Use DateTimeProvider.Today instead.
