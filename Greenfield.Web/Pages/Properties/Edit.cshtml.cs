@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Greenfield.Web.Model;
+using Greenfield.Web.Model.Context;
 using Greenfield.Web.Model.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -58,9 +58,8 @@ namespace Greenfield.Web.Pages.Properties
                 return Page();
             }
 
-            if(Property.Name.ToUpper() == originalName.ToUpper())
+            if (Property.Name.ToUpper() == originalName.ToUpper())
             {
-
             }
 
             context.Attach(Property).State = EntityState.Modified;
