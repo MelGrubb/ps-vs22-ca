@@ -60,7 +60,6 @@ namespace Greenfield.Web.Pages.Properties
 
             if (Property.Name.ToUpper() == originalName.ToUpper())
             {
-
             }
 
             context.Attach(Property).State = EntityState.Modified;
